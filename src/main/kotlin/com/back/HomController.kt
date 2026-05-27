@@ -7,15 +7,15 @@ import software.amazon.awssdk.services.s3.S3Client
 
 @RestController
 class HomeController(
-    private val s3Service: S3Service
-) {
+    private val s3Service: S3Service,
 
     @Value("\${custom.secretWord}")
     private val secretWord: String = ""
+) {
 
     @GetMapping
     fun main(): String {
-        return "Hi, $secretWord !!"
+        return "Hi, {$secretWord} !!"
     }
 
     @GetMapping("/buckets")
